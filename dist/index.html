@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorios FCQ | Universidad de Cuenca</title>
+    <meta name="description" content="Plataforma local de laboratorios de la Facultad de Ciencias Químicas de la Universidad de Cuenca." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Inicio Laboratorios Universidad de Cuenca">
+        <img src="assets/ucuenca-ciencias-quimicas-logo.png" alt="UCUENCA Ciencias Químicas" />
+        <strong>Laboratorios</strong>
+      </a>
+      <div class="header-links" aria-label="Accesos principales">
+        <a href="index.html">Inicio</a>
+        <a href="#campus">Campus</a>
+      </div>
+      <nav class="campus-menu" id="campusNav" aria-label="Laboratorios por campus"></nav>
+    </header>
+
+    <main>
+      <section class="home-hero">
+        <div class="hero-text">
+          <p class="kicker">Universidad de Cuenca</p>
+          <h1>Laboratorios de la Facultad de Ciencias Químicas</h1>
+          <p>
+            Plataforma institucional para consultar los laboratorios por campus y acceder a información
+            organizada sobre responsables, equipos, mantenimiento, inventario, PNT y agenda de uso.
+          </p>
+        </div>
+        <div class="hero-image" aria-label="Laboratorio FCQ"></div>
+      </section>
+
+      <section class="intro-band">
+        <p>
+          Los laboratorios se presentan por campus para facilitar la búsqueda y reducir la carga visual.
+          Cada espacio cuenta con una ficha independiente para su gestión académica y operativa.
+        </p>
+        <a class="button-link" href="#campus">Explorar laboratorios</a>
+      </section>
+
+      <section class="campus-overview" id="campus">
+        <div class="section-heading">
+          <p class="kicker">Mapa inicial</p>
+          <h2>Tres categorías por campus</h2>
+        </div>
+        <div class="campus-grid" id="campusSummary"></div>
+      </section>
+
+      <section class="featured">
+        <div class="section-heading">
+          <p class="kicker">Acceso rápido</p>
+          <h2>Primeros laboratorios cargados</h2>
+        </div>
+        <div class="tile-grid" id="featuredLabs"></div>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="home.js"></script>
+  </body>
+</html>
