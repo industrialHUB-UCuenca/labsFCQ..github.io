@@ -30,31 +30,27 @@
             organizada sobre responsables, equipos, mantenimiento, inventario, PNT y agenda de uso.
           </p>
         </div>
-        <div class="hero-image" aria-label="Laboratorio FCQ"></div>
-      </section>
-
-      <section class="intro-band">
-        <p>
-          Los laboratorios se presentan por campus para facilitar la búsqueda y reducir la carga visual.
-          Cada espacio cuenta con una ficha independiente para su gestión académica y operativa.
-        </p>
-        <a class="button-link" href="#campus">Explorar laboratorios</a>
+        <div class="hero-image" aria-label="Facultad de Ciencias Químicas"></div>
       </section>
 
       <section class="campus-overview" id="campus">
         <div class="section-heading">
           <p class="kicker">Mapa inicial</p>
-          <h2>Tres categorías por campus</h2>
+          <h2>Laboratorios por campus</h2>
         </div>
         <div class="campus-grid" id="campusSummary"></div>
       </section>
 
-      <section class="featured">
+      <section class="synoptic-section">
         <div class="section-heading">
-          <p class="kicker">Acceso rápido</p>
-          <h2>Primeros laboratorios cargados</h2>
+          <p class="kicker">Mapa sinóptico</p>
+          <h2>Exploración por carrera</h2>
         </div>
-        <div class="tile-grid" id="featuredLabs"></div>
+        <div class="synoptic-shell">
+          <div class="synoptic-controls" id="campusFilters" aria-label="Filtrar por campus"></div>
+          <div class="synoptic-map" id="synopticMap"></div>
+          <aside class="synoptic-detail" id="labPreview" aria-live="polite"></aside>
+        </div>
       </section>
     </main>
 

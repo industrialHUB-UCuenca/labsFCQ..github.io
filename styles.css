@@ -257,9 +257,9 @@ main {
   border-radius: 6px;
   background-image:
     linear-gradient(180deg, rgba(23, 43, 77, 0.02), rgba(23, 43, 77, 0.14)),
-    url("assets/fcq-labs-visual.png");
+    url("assets/banner-fcq.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   box-shadow: var(--shadow);
 }
 
@@ -318,7 +318,8 @@ main {
 }
 
 .campus-overview,
-.featured {
+.featured,
+.synoptic-section {
   padding: 0 clamp(18px, 4vw, 56px);
   margin-bottom: 72px;
 }
@@ -350,6 +351,12 @@ main {
   padding: 22px;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .campus-card::before {
@@ -389,6 +396,12 @@ main {
   color: var(--muted);
 }
 
+.campus-card:hover {
+  border-color: rgba(200, 16, 46, 0.42);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
 .accent-1 {
   background: linear-gradient(180deg, #ffffff, #f8fbfd);
 }
@@ -412,6 +425,259 @@ main {
   border-color: rgba(200, 16, 46, 0.42);
   box-shadow: var(--shadow);
   transform: translateY(-3px);
+}
+
+.synoptic-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: clamp(18px, 3vw, 30px);
+  align-items: start;
+}
+
+.synoptic-controls {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.synoptic-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 15px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--navy);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.synoptic-controls button:hover,
+.synoptic-controls button.active {
+  border-color: rgba(200, 16, 46, 0.4);
+  background: var(--soft-red);
+  color: var(--ucuenca-red);
+}
+
+.synoptic-controls span {
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.78rem;
+}
+
+.synoptic-map {
+  display: grid;
+  gap: 16px;
+}
+
+.career-lane {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(233, 242, 248, 0.72), rgba(255, 255, 255, 0.98) 38%),
+    var(--white);
+  box-shadow: 0 8px 26px rgba(23, 43, 77, 0.055);
+}
+
+.career-head {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 120px;
+  padding: 14px;
+  border-left: 4px solid var(--ucuenca-red);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.career-head span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 900;
+}
+
+.career-head h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(1.02rem, 1.5vw, 1.34rem);
+  line-height: 1.16;
+}
+
+.lab-node-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  align-content: start;
+}
+
+.lab-node {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 74px;
+  padding: 12px;
+  border: 1px solid rgba(23, 43, 77, 0.12);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.lab-node:hover,
+.lab-node.selected {
+  border-color: rgba(200, 16, 46, 0.5);
+  background: #fff8f9;
+  transform: translateY(-2px);
+}
+
+.lab-node span {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--soft-red);
+  color: var(--ucuenca-red);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.lab-node strong {
+  color: var(--navy);
+  font-size: 0.94rem;
+  line-height: 1.25;
+}
+
+.synoptic-detail {
+  position: sticky;
+  top: 98px;
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid rgba(200, 16, 46, 0.2);
+  border-radius: 6px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.preview-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preview-topline span {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--sky);
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.synoptic-detail h3 {
+  margin: 0;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.6vw, 2.35rem);
+  line-height: 1.02;
+}
+
+.synoptic-detail p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.preview-people {
+  display: grid;
+  gap: 12px;
+}
+
+.preview-people article {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbfcfd;
+}
+
+.preview-people img,
+.person-initials.small {
+  width: 92px;
+  height: 112px;
+  border-radius: 5px;
+  border: 1px solid var(--line);
+  background: var(--sky);
+}
+
+.preview-people img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.person-initials.small {
+  display: grid;
+  place-items: center;
+  color: var(--ucuenca-red);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.preview-people strong,
+.preview-people small,
+.preview-people a {
+  display: block;
+}
+
+.preview-people strong {
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.preview-people small {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.preview-people a {
+  margin-top: 5px;
+  color: var(--ucuenca-red);
+  font-size: 0.86rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.preview-people a:hover {
+  text-decoration: underline;
 }
 
 .lab-hero {
@@ -647,6 +913,8 @@ main {
   .site-header,
   .home-hero,
   .lab-layout,
+  .synoptic-shell,
+  .career-lane,
   .campus-grid,
   .tile-grid {
     grid-template-columns: 1fr;
@@ -670,6 +938,10 @@ main {
   }
 
   .profile-card {
+    position: static;
+  }
+
+  .synoptic-detail {
     position: static;
   }
 }

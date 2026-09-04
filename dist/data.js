@@ -1,49 +1,68 @@
 const sourceLabs = [
-  ["Laboratorio de Microscopía", "Campus Central", "Facultad de Ciencias Químicas", "Mónica Narváez", "0987224326", "Docencia"],
-  ["Laboratorio de Toxicología Clínica", "Campus Central", "Facultad de Ciencias Químicas", "Mónica Narváez", "0987224326", "Docencia"],
-  ["Laboratorio de Tecnología Farmacéutica", "Campus Central", "Facultad de Ciencias Químicas", "María Montaleza", "0988898045", "Docencia"],
-  ["Laboratorio de Análisis Bromatológico", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "María Montaleza", "0988898045", "Docencia"],
-  ["Laboratorio de Microbiología de Alimentos", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Jessica León; Técnico docente: María Montaleza", "0988898045", "Docencia"],
-  ["Laboratorio de Botánica", "Campus Central", "Facultad de Ciencias Químicas", "Maritza Dariana Lamulle Vicuña", "0995076993", "Docencia"],
-  ["Laboratorio de Operaciones Unitarias", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Jorge Delgado; Técnico docente: Verónica Saetama", "0995559600", "Docencia"],
-  ["Laboratorio de Análisis de Suelos", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Jaime Cuenca", "0984929762", "Docencia"],
-  ["Laboratorio de Humidificación", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Verónica Saetama", "0995559600", "Docencia"],
-  ["Laboratorio de Energía e Ingeniería de la Reacción", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Angélica Vele; Técnico docente: Verónica Saetama", "0995559600", "Docencia"],
-  ["Laboratorio de Mineralogía", "Campus Central", "Facultad de Ciencias Químicas", "Christian Cruzat", "0983945653", "Docencia"],
-  ["Laboratorio de Termodinámica y Fisicoquímica", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Alexandra Criollo", "0995776576", "Docencia"],
-  ["Laboratorio de Química", "Campus Central", "Facultad de Ciencias Químicas", "Israel Astudillo", "0983336244", "Docencia"],
-  ["Laboratorio de Química Orgánica", "Campus Central", "Facultad de Ciencias Químicas", "Fabricio Riera", "", "Docencia"],
-  ["Laboratorio de Análisis Cuantitativo", "Campus Central", "Facultad de Ciencias Químicas", "Freddy Enrique Bustamante Pacheco", "0969366873", "Docencia"],
-  ["Laboratorio de Fabricación Digital-Industrial FABLAB (Ingeniería Industrial)", "Balzay", "Bloque C", "Responsable: Noé Rodrigo Guamán G.; Técnico docente: Jenny Maritza Rojas Q.", "0995638810", "Docencia"],
-  ["Laboratorio de Manufactura Flexible (Ingeniería Industrial)", "Balzay", "Bloque C", "Responsable: Noé Rodrigo Guamán G.; Técnico docente: Fernando Cajamarca Guamabaña", "0995638810", "Docencia"],
-  ["Laboratorio de Industria 4.0 (Ingeniería Industrial)", "Balzay", "Bloque C", "Responsable: Noé Rodrigo Guamán G.; Técnico docente: Jenny Maritza Rojas Q.", "0995638810", "Docencia"],
-  ["Laboratorio de Máquinas Herramientas (Ingeniería Industrial)", "Tecnológico", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Manuel Raúl Peláez Samaniego", "0990791031", "Docencia"],
-  ["Laboratorio de Cárnicos, Lácteos y Conservas", "Tecnológico", "Tecnológico Facultad de Ciencias Químicas", "Alexandra Criollo", "0995776576", "Docencia"],
-  ["Laboratorio de Ingeniería Ambiental", "Balzay", "Bloque de Laboratorios Antiguos", "David Abad", "0979744269", "Docencia"],
-  ["Laboratorio de Geomática y Simulación Ambiental", "Balzay", "Bloque C", "Responsable: Danilo Mejía; Técnico docente: David Abad", "0979744269", "Docencia"],
-  ["Laboratorio de Calidad de Agua y Microbiología", "Campus Balzay", "Bloque de Laboratorios Antiguos", "Paulina Escobar", "0983154033", "Docencia"],
-  ["Laboratorio de Ecología Acuática", "Balzay", "Bloque de Laboratorios Antiguos", "Diego Vimos", "0994481034", "Docencia"],
-  ["Laboratorio de Microbiología Clínica", "Campus Central", "Facultad de Ciencias Químicas", "Priscila Plaza", "0983198860", "Docencia"],
-  ["Laboratorio de Análisis Instrumental", "Campus Central", "Facultad de Ciencias Químicas", "Freddy Enrique Bustamante Pacheco", "0969366873", "Docencia"],
-  ["Laboratorio de Farmacognosia y Fitoterapia", "Campus Central", "Facultad de Ciencias Químicas", "Freddy Enrique Bustamante Pacheco", "0969366873", "Docencia"],
-  ["Laboratorio de Análisis Biológico y Genética", "Campus Central", "Facultad de Ciencias Químicas", "Andrea Cabrera", "0995746867", "Docencia"],
-  ["Laboratorio de Alimentos: Fermentación", "Balzay", "Bloque de Laboratorios Antiguos", "Jaime Cuenca", "0984929762", "Docencia"],
-  ["Laboratorio de Materiales CEA", "Balzay", "Bloque de Laboratorios Antiguos", "Pablo Castro", "0983488783", "Docencia"],
-  ["Laboratorio de Metalurgia", "Balzay", "Bloque de Laboratorios Antiguos", "Diana Brazales", "0993072124", "Docencia"],
-  ["Laboratorio de Manipulación de Sólidos", "Balzay", "Bloque de Laboratorios Antiguos", "Diana Brazales", "0993072124", "Docencia"],
-  ["Laboratorio de Cerámica", "Balzay", "Bloque de Laboratorios Antiguos", "Pablo Castro", "0983488783", "Docencia"],
-  ["Laboratorio CESEMIN", "Balzay", "Bloque de Laboratorios Antiguos", "Marcela Idrovo", "0995973466", "Docencia/Atención al Público"],
-  ["Laboratorio de Análisis Orgánico", "Campus Central", "Facultad de Ciencias Químicas", "Bqf. Fabricio Riera Astudillo", "0992624208", "Docencia"],
+  ["Laboratorio de Microscopía", "Campus Central", "Facultad de Ciencias Químicas", "Mónica Narváez Vera", "0987224326", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Toxicología Clínica", "Campus Central", "Facultad de Ciencias Químicas", "Mónica Narváez Vera", "0987224326", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Tecnología Farmacéutica", "Campus Central", "Facultad de Ciencias Químicas", "María Montaleza", "0988898045", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Análisis Bromatológico", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "María Montaleza", "0988898045", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Microbiología de Alimentos", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Jéssica León Vizñay; Técnico docente: María Montaleza", "0988898045", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Botánica", "Campus Central", "Facultad de Ciencias Químicas", "Maritza Lamulle Vicuña", "0995076993", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Operaciones Unitarias", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Jorge Delgado Noboa; Técnico docente: María Verónica Saetama Guallpa", "0995559600", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Análisis de Suelos", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Jaime Cuenca León", "0984929762", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Humidificación", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "María Verónica Saetama Guallpa", "0995559600", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Energía e Ingeniería de la Reacción", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Angélica Vele; Técnico docente: María Verónica Saetama Guallpa", "0995559600", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Mineralogía", "Campus Central", "Facultad de Ciencias Químicas", "Christian Cruzat Contreras", "0983945653", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Termodinámica y Fisicoquímica", "Campus Central", "Tecnológico Facultad de Ciencias Químicas", "Diana Alexandra Criollo Ayala", "0995776576", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Química", "Campus Central", "Facultad de Ciencias Químicas", "Jorge Israel Astudillo Zúñiga", "0983336244", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Química Orgánica", "Campus Central", "Facultad de Ciencias Químicas", "Pablo Fabricio Riera Astudillo", "", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Análisis Cuantitativo", "Campus Central", "Facultad de Ciencias Químicas", "Freddy Enrique Bustamante Pacheco", "0969366873", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Fabricación Digital - FABLAB", "Balzay", "Bloque C", "Responsable: Noé Rodrigo Guamán G.; Técnico docente: Jenny Maritza Rojas Q.", "0995638810", "Docencia", "Ingeniería Industrial"],
+  ["Laboratorio de Manufactura Flexible (Ingeniería Industrial)", "Balzay", "Bloque C", "Responsable: Paúl Álvarez; Técnico docente: Fernando Cajamarca Guamabaña", "0995638810", "Docencia", "Ingeniería Industrial"],
+  ["Laboratorio de Industria 4.0 (Ingeniería Industrial)", "Balzay", "Bloque C", "Responsable: Noé Rodrigo Guamán G.; Técnico docente: Jenny Maritza Rojas Q.", "0995638810", "Docencia", "Ingeniería Industrial"],
+  ["Laboratorio de Máquinas Herramientas (Ingeniería Industrial)", "Tecnológico", "Tecnológico Facultad de Ciencias Químicas", "Responsable: Manuel Raúl Peláez Samaniego; Técnico docente: Fernando Cajamarca Guamabaña", "0990791031", "Docencia", "Ingeniería Industrial"],
+  ["Laboratorio de Cárnicos, Lácteos y Conservas", "Tecnológico", "Tecnológico Facultad de Ciencias Químicas", "Diana Alexandra Criollo Ayala", "0995776576", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Ingeniería Ambiental", "Balzay", "Bloque de Laboratorios Antiguos", "Responsable: Alexandra Guanuchi; Técnico docente: Samantha Ramírez", "0979744269", "Docencia", "Ingeniería Ambiental"],
+  ["Laboratorio de Geomática y Simulación Ambiental", "Balzay", "Bloque C", "Responsable: Julio Danilo Mejía Coronel; Técnico docente: Samantha Ramírez", "0979744269", "Docencia", "Ingeniería Ambiental"],
+  ["Laboratorio de Calidad de Agua y Microbiología", "Campus Balzay", "Bloque de Laboratorios Antiguos", "Responsable: Alexandra Guanuchi; Responsable: Paulina Escobar Hinojosa", "0983154033", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Ecología Acuática", "Balzay", "Bloque de Laboratorios Antiguos", "Diego Vimos", "0994481034", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Microbiología Clínica", "Campus Central", "Facultad de Ciencias Químicas", "Priscila Plaza", "0983198860", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Análisis Instrumental", "Campus Central", "Facultad de Ciencias Químicas", "Freddy Enrique Bustamante Pacheco", "0969366873", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Farmacognosia y Fitoterapia", "Campus Central", "Facultad de Ciencias Químicas", "Freddy Enrique Bustamante Pacheco", "0969366873", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Análisis Biológico y Genética", "Campus Central", "Facultad de Ciencias Químicas", "Andrea Cabrera Andrade", "0995746867", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Alimentos: Fermentación", "Balzay", "Bloque de Laboratorios Antiguos", "Jaime Cuenca León", "0984929762", "Docencia", "Bioquímica y Farmacia"],
+  ["Laboratorio de Materiales CEA", "Balzay", "Bloque de Laboratorios Antiguos", "Pablo Castro", "0983488783", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Metalurgia", "Balzay", "Bloque de Laboratorios Antiguos", "Diana Brazales", "0993072124", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Manipulación de Sólidos", "Balzay", "Bloque de Laboratorios Antiguos", "Diana Brazales", "0993072124", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Cerámica", "Balzay", "Bloque de Laboratorios Antiguos", "Pablo Castro", "0983488783", "Docencia", "Ingeniería Química"],
+  ["Laboratorio CESEMIN", "Balzay", "Bloque de Laboratorios Antiguos", "Marcela Idrovo", "0995973466", "Docencia/Atención al Público", "Ingeniería Química"],
+  ["Laboratorio de Análisis Orgánico", "Campus Central", "Facultad de Ciencias Químicas", "BQF. Pablo Fabricio Riera Astudillo", "0992624208", "Docencia", "Ingeniería Química"],
+  ["Laboratorio de Gestión de Residuos Sólidos", "Balzay", "Junto a la Cafetería", "Responsable: Juan Cisneros; Técnico docente: Samantha Ramírez", "", "Docencia", "Ingeniería Ambiental"],
 ];
 
 const campusOrder = ["Campus Central", "Campus Balzay", "Laboratorio Tecnológico"];
 
 const photoByResponsible = {
+  "Freddy Enrique Bustamante Pacheco": "assets/responsables/freddy-enrique-bustamante-pacheco.jpg",
+  "María Montaleza": "assets/responsables/maria-montaleza.jpg",
   "Noé Rodrigo Guamán G.": "assets/responsables/noe-rodrigo-guaman.jpg",
   "Jenny Maritza Rojas Q.": "assets/responsables/jenny-maritza-rojas.jpg",
+  "Jorge Delgado Noboa": "assets/responsables/jorge-delgado-noboa.jpg",
+  "Jéssica León Vizñay": "assets/responsables/jessica-leon-viznay.jpg",
+  "Andrea Cabrera Andrade": "assets/responsables/andrea-cabrera-andrade.jpg",
+  "Mónica Narváez Vera": "assets/responsables/monica-narvaez-vera.jpg",
+  "María Verónica Saetama Guallpa": "assets/responsables/maria-veronica-saetama-guallpa.jpg",
+  "Maritza Lamulle Vicuña": "assets/responsables/maritza-lamulle-vicuna.jpg",
+  "Jaime Cuenca León": "assets/responsables/jaime-cuenca-leon.jpg",
+  "Christian Cruzat Contreras": "assets/responsables/christian-cruzat-contreras.jpg",
+  "Diana Alexandra Criollo Ayala": "assets/responsables/diana-alexandra-criollo-ayala.jpg",
+  "Jorge Israel Astudillo Zúñiga": "assets/responsables/jorge-israel-astudillo-zuniga.jpg",
+  "Pablo Fabricio Riera Astudillo": "assets/responsables/pablo-fabricio-riera-astudillo.jpg",
+  "BQF. Pablo Fabricio Riera Astudillo": "assets/responsables/pablo-fabricio-riera-astudillo.jpg",
+  "Julio Danilo Mejía Coronel": "assets/responsables/julio-danilo-mejia-coronel.jpg",
+  "Paulina Escobar Hinojosa": "assets/responsables/paulina-escobar-hinojosa.jpg",
 };
 
 const emailByResponsible = {
+  "Freddy Enrique Bustamante Pacheco": "freddy.bustamante2607@ucuenca.edu.ec",
+  "María Montaleza": "maria.montaleza@ucuenca.edu.ec",
   "Noé Rodrigo Guamán G.": "rodrigo.guaman@ucuenca.edu.ec",
   "Jenny Maritza Rojas Q.": "maritza.rojas@ucuenca.edu.ec",
 };
@@ -89,7 +108,7 @@ function makeEquipment(name) {
   const lower = name.toLowerCase();
   if (lower.includes("microbiologia") || lower.includes("microbiología")) return ["Cabina de bioseguridad", "Autoclave", "Incubadora"];
   if (lower.includes("digital") || lower.includes("manufactura") || lower.includes("industria")) {
-    return ["Estacion de prototipado", "Modulo de control", "Herramienta especializada"];
+    return ["Estación de prototipado", "Módulo de control", "Herramienta especializada"];
   }
   if (lower.includes("agua") || lower.includes("ambiental") || lower.includes("suelos")) {
     return ["Multiparámetro", "Equipo de filtración", "Balanza analítica"];
@@ -97,13 +116,14 @@ function makeEquipment(name) {
   return ["Balanza analítica", "Campana de extracción", "Equipo principal"];
 }
 
-const labs = sourceLabs.map(([name, rawCampus, building, responsible, phone, activity], index) => ({
+const labs = sourceLabs.map(([name, rawCampus, building, responsible, phone, activity, career], index) => ({
   id: `${slugify(name)}-${index + 1}`,
   number: index + 1,
   name,
   shortName: name.replace("Laboratorio de ", "").replace("Laboratorio ", ""),
   campus: normalizeCampus(rawCampus),
   building,
+  career,
   activity,
   responsible: parseResponsible(responsible, phone),
   equipment: makeEquipment(name),
