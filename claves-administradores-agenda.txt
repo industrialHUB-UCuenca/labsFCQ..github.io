@@ -1,0 +1,39 @@
+CLAVES DE ADMINISTRADOR - AGENDA LOCAL FCQ
+Generado para uso interno. No publicar estas claves en la página web.
+
+Laboratorio de Microscopía | Campus Central | Bioquímica y Farmacia | ADMI_M54
+Laboratorio de Toxicología Clínica | Campus Central | Bioquímica y Farmacia | ADMI_TC22
+Laboratorio de Tecnología Farmacéutica | Campus Central | Bioquímica y Farmacia | ADMI_TF68
+Laboratorio de Análisis Bromatológico | Campus Central | Bioquímica y Farmacia | ADMI_AB90
+Laboratorio de Microbiología de Alimentos | Campus Central | Bioquímica y Farmacia | ADMI_MA80
+Laboratorio de Botánica | Campus Central | Bioquímica y Farmacia | ADMI_B75
+Laboratorio de Operaciones Unitarias | Campus Central | Ingeniería Química | ADMI_OU90
+Laboratorio de Análisis de Suelos | Campus Central | Ingeniería Química | ADMI_AS64
+Laboratorio de Humidificación | Campus Central | Ingeniería Química | ADMI_H83
+Laboratorio de Energía e Ingeniería de la Reacción | Campus Central | Ingeniería Química | ADMI_EIR25
+Laboratorio de Mineralogía | Campus Central | Ingeniería Química | ADMI_M86
+Laboratorio de Termodinámica y Fisicoquímica | Campus Central | Ingeniería Química | ADMI_TF93
+Laboratorio de Química | Campus Central | Ingeniería Química | ADMI_Q33
+Laboratorio de Química Orgánica | Campus Central | Bioquímica y Farmacia | ADMI_QO15
+Laboratorio de Análisis Cuantitativo | Campus Central | Bioquímica y Farmacia | ADMI_AC54
+Laboratorio de Fabricación Digital - FABLAB | Campus Balzay | Ingeniería Industrial | ADMI_FDF52
+Laboratorio de Manufactura Flexible (Ingeniería Industrial) | Campus Balzay | Ingeniería Industrial | ADMI_MFII73
+Laboratorio de Industria 4.0 (Ingeniería Industrial) | Campus Balzay | Ingeniería Industrial | ADMI_I40I80
+Laboratorio de Máquinas Herramientas (Ingeniería Industrial) | Laboratorio Tecnológico | Ingeniería Industrial | ADMI_MHII23
+Laboratorio de Cárnicos, Lácteos y Conservas | Laboratorio Tecnológico | Ingeniería Química | ADMI_CLC49
+Laboratorio de Ingeniería Ambiental | Campus Balzay | Ingeniería Ambiental | ADMI_IA64
+Laboratorio de Geomática y Simulación Ambiental | Campus Balzay | Ingeniería Ambiental | ADMI_GSA69
+Laboratorio de Calidad de Agua y Microbiología | Campus Balzay | Ingeniería Química | ADMI_CAM37
+Laboratorio de Ecología Acuática | Campus Balzay | Bioquímica y Farmacia | ADMI_EA97
+Laboratorio de Microbiología Clínica | Campus Central | Bioquímica y Farmacia | ADMI_MC85
+Laboratorio de Análisis Instrumental | Campus Central | Bioquímica y Farmacia | ADMI_AI67
+Laboratorio de Farmacognosia y Fitoterapia | Campus Central | Bioquímica y Farmacia | ADMI_FF70
+Laboratorio de Análisis Biológico y Genética | Campus Central | Bioquímica y Farmacia | ADMI_ABG25
+Laboratorio de Alimentos: Fermentación | Campus Balzay | Bioquímica y Farmacia | ADMI_AF57
+Laboratorio de Materiales CEA | Campus Balzay | Ingeniería Química | ADMI_MC62
+Laboratorio de Metalurgia | Campus Balzay | Ingeniería Química | ADMI_M85
+Laboratorio de Manipulación de Sólidos | Campus Balzay | Ingeniería Química | ADMI_MS95
+Laboratorio de Cerámica | Campus Balzay | Ingeniería Química | ADMI_C21
+Laboratorio CESEMIN | Campus Balzay | Ingeniería Química | ADMI_C55
+Laboratorio de Análisis Orgánico | Campus Central | Ingeniería Química | ADMI_AO49
+Laboratorio de Gestión de Residuos Sólidos | Campus Balzay | Ingeniería Ambiental | ADMI_GRS53
