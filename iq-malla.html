@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malla IQ | Ingeniería Química</title>
+    <meta name="description" content="Malla curricular de Ingeniería Química con prerrequisitos, correquisitos y docentes por asignatura." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="hub-page curriculum-iq-page">
+    <header class="site-header hub-header">
+      <a class="brand" href="iq.html" aria-label="Volver al Hub IQ">
+        <img src="assets/ucuenca-ciencias-quimicas-logo.png" alt="UCUENCA Ciencias Químicas" />
+        <strong>Malla IQ</strong>
+      </a>
+      <div class="header-links" aria-label="Accesos principales">
+        <a href="index.html">Laboratorios</a>
+        <a href="iq.html">Docentes</a>
+        <a href="iq-malla.html">Malla</a>
+      </div>
+      <nav class="hub-anchor-nav" aria-label="Navegación malla">
+        <a href="#niveles">Niveles</a>
+        <a href="#detalle">Detalle</a>
+        <a href="#red">Red</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hub-hero curriculum-hero-iq">
+        <div>
+          <p class="kicker">Malla curricular</p>
+          <h1>Secuencia, carga horaria y encadenamientos.</h1>
+          <p>
+            Consulta por nivel, identifica prerrequisitos y correquisitos, y revisa la información
+            de docentes asociados a cada asignatura desde la oferta académica.
+          </p>
+        </div>
+      </section>
+
+      <section class="hub-dashboard">
+        <div class="hub-metrics" id="curriculumMetrics"></div>
+        <div class="hub-toolbar" aria-label="Filtros de malla">
+          <label>
+            <span>Buscar</span>
+            <input id="courseSearch" type="search" placeholder="Asignatura, código o docente" />
+          </label>
+          <label>
+            <span>Nivel</span>
+            <select id="courseLevel"></select>
+          </label>
+          <label>
+            <span>Itinerario</span>
+            <select id="courseItinerary"></select>
+          </label>
+        </div>
+
+        <section class="curriculum-iq-layout" id="niveles">
+          <div class="curriculum-iq-grid" id="courseGrid"></div>
+          <aside class="course-detail-panel" id="detalle">
+            <div id="courseDetail"></div>
+          </aside>
+        </section>
+
+        <section class="hub-section" id="red">
+          <div class="section-heading compact">
+            <p class="kicker">Pre y correquisitos</p>
+            <h2>Red de la asignatura seleccionada</h2>
+          </div>
+          <div class="course-network" id="courseNetwork"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="iq-data.js"></script>
+    <script src="iq-malla.js"></script>
+  </body>
+</html>

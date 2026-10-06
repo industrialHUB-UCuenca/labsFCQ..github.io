@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hub IQ | Ingeniería Química</title>
+    <meta name="description" content="Repositorio académico de Ingeniería Química con comisiones, docentes, oferta y asignaturas." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="hub-page">
+    <header class="site-header hub-header">
+      <a class="brand" href="index.html" aria-label="Inicio Laboratorios Universidad de Cuenca">
+        <img src="assets/ucuenca-ciencias-quimicas-logo.png" alt="UCUENCA Ciencias Químicas" />
+        <strong>Hub IQ</strong>
+      </a>
+      <div class="header-links" aria-label="Accesos principales">
+        <a href="index.html">Laboratorios</a>
+        <a href="iq.html">Docentes</a>
+        <a href="iq-malla.html">Malla</a>
+      </div>
+      <nav class="hub-anchor-nav" aria-label="Navegación Hub IQ">
+        <a href="#comisiones">Comisiones</a>
+        <a href="#docentes">Docentes</a>
+        <a href="#asignaturas">Asignaturas</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hub-hero" id="resumen">
+        <div>
+          <p class="kicker">Ingeniería Química</p>
+          <h1>Hub académico de comisiones, docentes y oferta.</h1>
+          <p>
+            Repositorio navegable de la carrera con comisiones activas, docentes vinculados a la oferta
+            septiembre 2026 - febrero 2027 y acceso directo a la malla con pre y correquisitos.
+          </p>
+        </div>
+      </section>
+
+      <section class="hub-dashboard">
+        <div class="hub-metrics" id="hubMetrics"></div>
+
+        <section class="hub-section" id="comisiones">
+          <div class="section-heading compact">
+            <p class="kicker">Gobernanza académica</p>
+            <h2>Comisiones</h2>
+          </div>
+          <div class="commission-grid" id="commissionGrid"></div>
+        </section>
+
+        <section class="hub-section" id="docentes">
+          <div class="section-heading compact">
+            <p class="kicker">Directorio dinámico</p>
+            <h2>Docentes y asignaturas</h2>
+          </div>
+          <div class="hub-toolbar" aria-label="Filtros de docentes">
+            <label>
+              <span>Buscar</span>
+              <input id="facultySearch" type="search" placeholder="Docente, asignatura o comisión" />
+            </label>
+            <label>
+              <span>Nivel</span>
+              <select id="facultyLevel"></select>
+            </label>
+            <label>
+              <span>Origen</span>
+              <select id="facultySource"></select>
+            </label>
+          </div>
+          <div class="faculty-shell">
+            <div class="faculty-grid" id="facultyGrid"></div>
+            <aside class="faculty-panel" id="facultyPanel"></aside>
+          </div>
+        </section>
+
+        <section class="hub-section" id="asignaturas">
+          <div class="section-heading compact">
+            <p class="kicker">Oferta académica</p>
+            <h2>Asignaturas relacionadas con docentes</h2>
+          </div>
+          <div class="offer-table-wrap">
+            <table class="offer-table">
+              <thead>
+                <tr>
+                  <th>Nivel</th>
+                  <th>Código</th>
+                  <th>Asignatura</th>
+                  <th>Horas</th>
+                  <th>Docentes</th>
+                </tr>
+              </thead>
+              <tbody id="offerRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="iq-data.js"></script>
+    <script src="iq.js"></script>
+  </body>
+</html>

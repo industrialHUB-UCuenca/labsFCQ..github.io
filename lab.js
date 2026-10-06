@@ -107,7 +107,166 @@ function renderSafetyRequirements(items) {
   `;
 }
 
+function statusClass(value) {
+  return String(value || "sin-estado")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function countBy(items, key) {
+  return items.reduce((totals, item) => {
+    const value = item[key] || "Sin estado";
+    totals[value] = (totals[value] || 0) + 1;
+    return totals;
+  }, {});
+}
+
+function renderDataSummary(items, label, key = "estado") {
+  const totals = countBy(items, key);
+  return `
+    <div class="data-summary">
+      <article>
+        <strong>${items.length}</strong>
+        <span>${escapeHtml(label)}</span>
+      </article>
+      ${Object.entries(totals)
+        .slice(0, 4)
+        .map(
+          ([name, total]) => `
+            <article>
+              <strong>${total}</strong>
+              <span>${escapeHtml(name)}</span>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderEquipmentInventory(items) {
+  if (!items?.length || typeof items[0] === "string") return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+
+  return `
+    ${renderDataSummary(items, "equipos registrados")}
+    <div class="inventory-table-wrap">
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Equipo</th>
+            <th>Estado</th>
+            <th>Próximo mantenimiento</th>
+            <th>Ficha</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${items
+            .map(
+              (item, index) => `
+                <tr>
+                  <td>
+                    ${
+                      item.fotoMiniatura
+                        ? `<img class="equipment-thumb" src="${escapeHtml(item.fotoMiniatura)}" alt="${escapeHtml(item.nombre)}" loading="lazy" />`
+                        : `<span class="equipment-thumb placeholder" aria-hidden="true">${safetyIcon("equipment")}</span>`
+                    }
+                  </td>
+                  <td>
+                    <strong>${escapeHtml(item.nombre)}</strong>
+                    <small>${escapeHtml([item.codigo || "S/C", item.marca, item.modelo].filter(Boolean).join(" / "))}</small>
+                  </td>
+                  <td><span class="status-pill status-${statusClass(item.estado)}">${escapeHtml(item.estado || "Sin estado")}</span></td>
+                  <td>${escapeHtml(item.proximo || "No registrado")}</td>
+                  <td><button class="table-action" type="button" data-equipment-index="${index}">Ver</button></td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderEquipmentModal() {
+  return `
+    <div class="equipment-modal" id="equipmentModal" hidden>
+      <div class="equipment-modal-backdrop" data-close-equipment-modal></div>
+      <section class="equipment-dialog" role="dialog" aria-modal="true" aria-labelledby="equipmentModalTitle">
+        <button class="equipment-close" type="button" data-close-equipment-modal aria-label="Cerrar ficha de equipo">×</button>
+        <div class="equipment-dialog-media" id="equipmentModalMedia"></div>
+        <div class="equipment-dialog-body">
+          <p class="kicker">Ficha de equipo</p>
+          <h3 id="equipmentModalTitle"></h3>
+          <dl id="equipmentModalSpecs"></dl>
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderMaintenancePlan(items) {
+  if (!items?.length || typeof items[0] === "string") return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+
+  const groups = items.reduce((collection, item) => {
+    collection[item.equipo] ??= [];
+    collection[item.equipo].push(item);
+    return collection;
+  }, {});
+
+  return `
+    ${renderDataSummary(items, "tareas de mantenimiento")}
+    <div class="maintenance-accordion">
+      ${Object.entries(groups)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(
+          ([equipment, tasks], index) => `
+            <details class="maintenance-group" ${index < 3 ? "open" : ""}>
+              <summary>
+                <strong>${escapeHtml(equipment)}</strong>
+                <span>${tasks.length} tareas</span>
+              </summary>
+              <div class="maintenance-table-wrap">
+                <table class="maintenance-table">
+                  <thead>
+                    <tr>
+                      <th>Tarea</th>
+                      <th>Frecuencia</th>
+                      <th>Estado</th>
+                      <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${tasks
+                      .map(
+                        (task) => `
+                          <tr>
+                            <td>${escapeHtml(task.tarea)}</td>
+                            <td>${escapeHtml(task.frecuencia || "Sin dato")}</td>
+                            <td><span class="status-pill status-${statusClass(task.estado)}">${escapeHtml(task.estado || "Sin estado")}</span></td>
+                            <td>${escapeHtml(task.fecha || task.finalizacion || "No registrada")}</td>
+                          </tr>
+                        `,
+                      )
+                      .join("")}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
 function renderTabItems(tab) {
+  if (tab.id === "equipos") return renderEquipmentInventory(tab.items);
+  if (tab.id === "mantenimiento") return renderMaintenancePlan(tab.items);
   if (tab.id === "seguridad") return renderSafetyRequirements(tab.items);
   if (tab.id === "agenda") return renderAgendaWorkspace();
   return `<ul>${tab.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
@@ -641,6 +800,73 @@ async function setupAgendaTab() {
   });
 }
 
+function equipmentSpecs(item) {
+  return [
+    ["Código", item.codigo || "S/C"],
+    ["Marca", item.marca || "Sin dato"],
+    ["Modelo", item.modelo || "Sin dato"],
+    ["Serie", item.serie || "Sin dato"],
+    ["Año de fabricación", item.anio || "Sin dato"],
+    ["Cantidad", item.cantidad || "1"],
+    ["Estado", item.estado || "Sin estado"],
+    ["Ubicación", item.ubicacion || "Sin dato"],
+    ["Responsable", item.responsable || "Sin dato"],
+    ["Próximo mantenimiento", item.proximo || "No registrado"],
+  ];
+}
+
+function closeEquipmentModal() {
+  const modal = document.querySelector("#equipmentModal");
+  if (!modal) return;
+  modal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+function openEquipmentModal(index) {
+  const item = lab.equipment?.[Number(index)];
+  const modal = document.querySelector("#equipmentModal");
+  const title = document.querySelector("#equipmentModalTitle");
+  const media = document.querySelector("#equipmentModalMedia");
+  const specs = document.querySelector("#equipmentModalSpecs");
+  if (!item || !modal || !title || !media || !specs) return;
+
+  title.textContent = item.nombre;
+  media.innerHTML = item.fotoGrande
+    ? `<img src="${escapeHtml(item.fotoGrande)}" alt="${escapeHtml(item.nombre)}" loading="lazy" />`
+    : `<div class="equipment-empty-photo">${safetyIcon("equipment")}<span>Foto no disponible</span></div>`;
+  specs.innerHTML = equipmentSpecs(item)
+    .map(
+      ([label, value]) => `
+        <div>
+          <dt>${escapeHtml(label)}</dt>
+          <dd>${escapeHtml(value)}</dd>
+        </div>
+      `,
+    )
+    .join("");
+  modal.hidden = false;
+  document.body.classList.add("modal-open");
+  modal.querySelector(".equipment-close")?.focus();
+}
+
+function setupEquipmentModal() {
+  const modal = document.querySelector("#equipmentModal");
+  if (!modal) return;
+
+  document.querySelector(".inventory-table-wrap")?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-equipment-index]");
+    if (button) openEquipmentModal(button.dataset.equipmentIndex);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-close-equipment-modal]")) closeEquipmentModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) closeEquipmentModal();
+  });
+}
+
 function renderCampusNav() {
   campusNav.innerHTML = campusOrder
     .map((campus) => {
@@ -685,8 +911,10 @@ function renderLab() {
       id: "mantenimiento",
       label: "Gestión de mantenimiento",
       title: "Gestión de mantenimiento",
-      items: ["Revisión preventiva trimestral", "Registro de intervenciones", "Alertas de calibración", "Verificación de condiciones de operación"],
-      note: "Esta pestaña concentra el plan de mantenimiento preventivo y correctivo del laboratorio.",
+      items: lab.maintenance || ["Revisión preventiva trimestral", "Registro de intervenciones", "Alertas de calibración", "Verificación de condiciones de operación"],
+      note: lab.maintenance
+        ? `Plan de mantenimiento cargado desde la base adjunta. ${lab.maintenance.length} tareas registradas.`
+        : "Esta pestaña concentra el plan de mantenimiento preventivo y correctivo del laboratorio.",
     },
     {
       id: "seguridad",
@@ -730,7 +958,7 @@ function renderLab() {
                 }
                 <span>
                   <strong>${escapeHtml(person.name)}</strong>
-                  <small>${escapeHtml(person.role)}${person.phone ? ` / ${escapeHtml(person.phone)}` : ""}</small>
+                  <small>${escapeHtml(person.role)}</small>
                   ${person.email ? `<a class="person-email" href="mailto:${escapeHtml(person.email)}">${escapeHtml(person.email)}</a>` : ""}
                 </span>
               </div>
@@ -781,6 +1009,7 @@ function renderLab() {
         </nav>
       </div>
     </section>
+    ${renderEquipmentModal()}
   `;
 
   document.querySelectorAll(".folio-tab").forEach((button) => {
@@ -798,6 +1027,7 @@ function renderLab() {
   });
 
   setupAgendaTab();
+  setupEquipmentModal();
 }
 
 renderCampusNav();

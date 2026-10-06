@@ -12,6 +12,10 @@ Abre `index.html` en el navegador, o usa la carpeta `dist` si quieres revisar la
 - `lab.html`: plantilla de subpágina individual de laboratorio.
 - `styles.css`: diseño visual y responsive.
 - `data.js`: datos de laboratorios y responsables tomados de la matriz.
+- `lab-inventory-overrides.js`: inventario y mantenimiento cargado desde la base `info labs.xlsx` para FABLAB, Industria 4.0 y Manufactura Flexible.
+- `assets/equipment/fablab`: miniaturas e imágenes optimizadas en WebP para los equipos del FABLAB.
+- `assets/equipment/industria-4-0`: miniaturas e imágenes optimizadas en WebP para los equipos del laboratorio de Industria 4.0.
+- `assets/equipment/manufactura-flexible`: miniaturas e imágenes optimizadas en WebP para los equipos del laboratorio de Manufactura Flexible.
 - `schedule-config.js`: configuración de almacenamiento local de agenda.
 - `home.js`: barra de navegación desplegable y mapa sinóptico de portada.
 - `lab.js`: contenido de cada ficha individual de laboratorio.
